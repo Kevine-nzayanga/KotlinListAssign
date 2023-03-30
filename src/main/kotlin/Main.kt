@@ -7,14 +7,18 @@ var attributes = personas("James",25,170.0,59.8)
 var det =attributes.details()
   var addi=  attributes.additional()
     var alltog= listOf(det,addi)
-    println("question4 $addi")
+    println("question4 $addi,$alltog")
 
-    var transport = car("UG567",365.0)
-       transport.mill()
+//    var transport = car("UG567",365.0)
+       var trans = listOf(
+             car("KE123",124.0),
+               car("BR12",56.0),
+               car("KE23",349.0),
+               car("we28",45.0),
+       )
+    var averageM = calculation(trans)
+    println(averageM)
 
-
-//    var characters= newPeople("Camilla",25,140.0,47.0)
-//characters.details()
 
 }
 //question1
@@ -91,31 +95,21 @@ println(smallest)
 //    }
 
 
-
-
 //QUESTION5
 //Write a function that takes in a list of Car objects each with a
 //registration and mileage attribute and returns the average mileage of
 //all the vehicles in the list.
-data class car (var registration:String,var milleage:Double){
-    fun mill():Double {
-        var carBenz = car("Ke123", 123.0)
-        var carToyota = car("Bu1803", 409.0)
-        var carHammer = car("Rw235", 768.0)
-        var together = mutableListOf(carBenz, carToyota, carHammer)
-        println(together)
-        var total = 0.0
-        for (c in together){
+data class car (var registration:String,var milleage:Double)
 
-            total += c.milleage
-    }
-        var average = total/together.size
+    fun calculation(trans:List<car>):Double{
+var total = 0.0
+        for (c in trans){
+            total+=c.milleage
+        }
 
-        return average
+return total/trans.size
   }
 
 
 
 
-
-}
